@@ -14,7 +14,7 @@ const Average = () => {
     const onChange = useCallback(e => {
         setNumber(e.target.value);
     },[]);
-    const onInsert = useCallback(e => {
+    const onInsert = useCallback(() => {
         const nextList = list.concat(parseInt(number));
         setList(nextList);
         setNumber('');
@@ -30,7 +30,7 @@ const Average = () => {
                 onChange={onChange}
                 ref={inputEl}
             />
-            <button onClick={() => {onInsert()}}>등록</button>
+            <button onClick={onInsert}>등록</button>
             <ul>
                 {
                     list.map((value, index) => (
